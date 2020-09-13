@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Kyopro Knowledge Hub
+{% endblock %}
+
+
+{% block content %}
+  <h1>Kyopro Knowledge Hub (β) について</h1>
+  カテゴリ<small><a class="btn btn-outline-secondary btn-sm mx-2" role="button"> 追加</a>： <a href="{% url 'index' %}">Web アプリ</a> / <a href="{% url 'index' %}">競技プログラミング</a> / <a href="{% url 'index' %}">数学</a><br></small>
+  タグ<small><a class="btn btn-outline-secondary btn-sm mx-2" role="button">追加</a>： <a href="{% url 'index' %}">みんなでつくる</a> / <a href="{% url 'index' %}">Wiki のようなもの</a><br></small>
+  <br>
+
+  <h4>一言コメント  
+    <a class="btn btn-outline-secondary" role="button">追加</a>
+  </h4>
+  <table class="table table-sm table-hover table-striped">
+      <tr class="d-flex table-default">
+          <td class="col-9">競プロに関する用語についての知識・情報を束ねるハブ</td>
+          <td class="col-1 text-center">16</td>
+          <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+          <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+      </tr>
+      <tr class="d-flex table-default">
+          <td class="col-9">誰でも用語・一言コメント・解説記事・関連問題を投稿可</td>
+          <td class="col-1 text-center">8</td>
+          <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+          <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+      </tr>
+      <tr class="d-flex table-default">
+          <td class="col-9">投票機能を使って、重要度の高い情報を優先的に表示</td>
+          <td class="col-1 text-center">4</td>
+          <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+          <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+      </tr>
+  </table>
+  <hr class="mx-2 my-4" color="black">
+
+  <h3>解説記事へのリンク（初～中級者向け）
+    <a class="btn btn-outline-secondary" role="button">追加</a>
+  </h3>
+  <table class="table table-hover table-striped">
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{% url 'index' %}">ここに解説記事を追加できます</a></td>
+        <td class="col-1 text-center">7</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{% url 'index' %}">「分かりやすい」「確かに初～中級者向け！」と思ったら上げ評価しましょう</a></td>
+        <td class="col-1 text-center">-3</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  </table>
+  <br>
+
+  <h3>解説記事へのリンク（中～上級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  <table class="table table-hover table-striped">
+    <tr class="d-flex table-default">
+      <td class="col-9"><a href="{% url 'index' %}">「下げ評価」も、気軽にやってしまって大丈夫です</a></td>
+      <td class="col-1 text-center">12</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    <tr class="d-flex table-default">
+      <td class="col-9"><a href="{% url 'index' %}">例えば、良い記事でも「中～上級者向けじゃない」と思えば、この項目では下げ評価しておきましょう</a></td>
+      <td class="col-1 text-center">5</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  </table>
+  <br>
+
+
+  <hr class="mx-2 my-4" color="black">
+
+  <h3>ライブラリ
+    <a class="btn btn-outline-secondary" role="button">追加</a>
+  </h3>
+  <table class="table table-hover table-striped">
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{% url 'index' %}">ライブラリや</a></td>
+        <td class="col-1 text-center">7</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  </table>
+  <br>
+
+  <hr class="mx-2 my-4" color="black">
+
+  <h3>関連問題（初～中級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  <table class="table table-hover table-striped">
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{% url 'index' %}">関連問題も追加できます</a></td>
+        <td class="col-1 text-center">7</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  </table>
+  <br>
+
+
+  <h3>関連問題（中～上級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  <table class="table table-hover table-striped">
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{% url 'index' %}">「初～中級者向け」と「中～上級者向け」で問題が被ってもOK</a></td>
+        <td class="col-1 text-center">2</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  </table>
+  <br>
+
+{% endblock %}

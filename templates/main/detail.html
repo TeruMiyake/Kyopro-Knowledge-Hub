@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Kyopro Knowledge Hub
+{% endblock %}
+
+
+{% block content %}
+  <h2>{{ keyword_text }} について</h2>
+  カテゴリ<small><a class="btn btn-outline-secondary btn-sm mx-2" role="button" href="{% url 'index' %}"> 追加</a>： {% if categories %}{% for category in categories %} <a href="{% url 'cdetail' category.id %}">{{category}}</a> / {% endfor %}{% endif %}<br></small>
+  タグ<small><a class="btn btn-outline-secondary btn-sm mx-2" role="button" href="{% url 'index' %}"> 追加</a>： {% if tags %}{% for tag in tags %} <a href="{% url 'tdetail' tag.id %}">{{tag}}</a> / {% endfor %}{% endif %}<br></small>
+  <br>
+
+  <!-- 一言コメント -->
+
+  <h4>一言コメント  
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h4>
+  {% if expls %}
+  <table class="table table-sm table-hover table-striped">
+    {% for expl in expls %}
+      <tr class="d-flex table-default">
+          <td class="col-9">{{ expl }}</td>
+          <td class="col-1 text-center">{{ expl.votes }}</td>
+          <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+          <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  <!-- 解説記事 -->
+
+  <hr class="mx-2 my-4" color="black">
+
+  <h3>解説記事へのリンク（初～中級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  {% if lforbs %}
+  <table class="table table-hover table-striped">
+    {% for lforb in lforbs %}
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{{ lforb.url }}" target="_blank">{{ lforb.text }}</a></td>
+        <td class="col-1 text-center">{{ lforb.votes }}</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <br>
+
+  <h3>解説記事へのリンク（中～上級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  {% if lforas %}
+  <table class="table table-hover table-striped">
+    {% for lfora in lforas %}
+    <tr class="d-flex table-default">
+      <td class="col-9"><a href="{{ lfora.url }}" target="_blank">{{ lfora.text }}</a></td>
+      <td class="col-1 text-center">{{ lfora.votes }}</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <br>
+
+  <!-- ライブラリ -->
+
+  <hr class="mx-2 my-4" color="black">
+
+  <h3>ライブラリ
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  {% if libraries %}
+  <table class="table table-hover table-striped">
+    {% for library in libraries %}
+    <tr class="d-flex table-default">
+        <td class="col-9"><a href="{{ library.url }}" target="_blank">{{ library }}</a></td>
+        <td class="col-1 text-center">{{ library.votes }}</td>
+        <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+        <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <br>
+
+  <!-- 関連問題 -->
+
+  <hr class="mx-2 my-5" color="black">
+
+  <h3>関連問題（初～中級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  {% if pforbs %}
+  <table class="table table-hover table-striped">
+    {% for pforb in pforbs %}
+    <tr class="d-flex table-default">
+      <td class="col-9"><a href="{{ pforb.url }}" target="_blank">{{ pforb.text }}</a></td>
+      <td class="col-1 text-center">{{ pforb.votes }}</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <br>
+
+
+  <h3>関連問題（中～上級者向け）
+    <a class="btn btn-outline-secondary" role="button" href="{% url 'index' %}">追加</a>
+  </h3>
+  {% if pforas %}
+  <table class="table table-sm table-hover table-striped">
+    {% for pfora in pforas %}
+    <tr class="d-flex table-default">
+      <td class="col-9"><a href="{{ pfora.url }}" target="_blank">{{ pfora.text }}</a></td>
+      <td class="col-1 text-center">{{ pfora.votes }}</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <br><br>
+
+{% endblock %}

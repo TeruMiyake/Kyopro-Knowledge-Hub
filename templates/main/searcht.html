@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Result : Search for Tag
+{% endblock %}
+
+
+{% block content %}
+<h1>タグを探す</h1><br>
+<form class="form-inline my-2 my-lg-2" method="GET" action="{% url 'searcht' %}">
+  <input class="form-control mr-sm-2 " type="searcht" name="qt" placeholder="Search for Tag" aria-label="Search for Tag" size="20" value="{{request.GET.qt}}">
+  <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Go</button>
+</form>
+<br><br>
+
+<h1>Search Result for Tag : "{{ searchword }}"</h1>
+<br>
+<h4>found : {{ tags.count }}</h4>
+{% if tags %}
+<table class="table table-hover table-striped">
+  <tr class="d-flex table-default">
+    <td class="col-6">タグ</td>
+    <td class="col-3 text-center">UUID</td>
+    <td class="col-1 text-center">評価値</td>
+    <td class="col-2 text-center">評価する</td>
+  </tr>
+  {% for tag in tags %}
+    <tr class="d-flex table-default">
+      <td class="col-6"><a href="{% url 'tdetail' tag_id=tag.id %}">{{ tag }}</a></td>
+      <td class="col-3 text-center">{{ tag.id }}</td>
+      <td class="col-1 text-center">{{ tag.votes }}</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

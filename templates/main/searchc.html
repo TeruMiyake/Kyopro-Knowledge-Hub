@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Result : Search for Category
+{% endblock %}
+
+
+{% block content %}
+<h1>カテゴリを探す</h1><br>
+<form class="form-inline my-2 my-lg-2" method="GET" action="{% url 'searchc' %}">
+  <input class="form-control mr-sm-2 " type="searchc" name="qc" placeholder="Search for Category" aria-label="Search for Category" size="20" value="{{request.GET.qc}}">
+  <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Go</button>
+</form>
+<br><br>
+
+<h1>Search Result for Category : "{{ searchword }}"</h1>
+<br>
+<h4>found : {{ categories.count }}</h4>
+{% if categories %}
+<table class="table table-hover table-striped">
+  <tr class="d-flex table-default">
+    <td class="col-6">カテゴリ</td>
+    <td class="col-3 text-center">UUID</td>
+    <td class="col-1 text-center">評価値</td>
+    <td class="col-2 text-center">評価する</td>
+  </tr>
+  {% for category in categories %}
+    <tr class="d-flex table-default">
+      <td class="col-6"><a href="{% url 'cdetail' category_id=category.id %}">{{ category }}</a></td>
+      <td class="col-3 text-center">{{ category.id }}</td>
+      <td class="col-1 text-center">{{ category.votes }}</td>
+      <td class="col-1 text-center"><a class="btn btn-outline-primary" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></td>
+      <td class="col-1 text-center"><a class="btn btn-outline-danger" role="button" href="{% url 'index' %}"><i class="fa fa-thumbs-down" aria-hidden="true"></i></a></td>
+    </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
