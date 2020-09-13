@@ -7,4 +7,3 @@ local_settings.py
 pub_settings.py
 db.sqlite3
 media
-README.md
