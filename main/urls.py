@@ -10,4 +10,5 @@ urlpatterns = [
   path('cdetail/<uuid:category_id>', views.cdetail, name='cdetail'),
   path('tdetail/<uuid:tag_id>', views.tdetail, name='tdetail'),
   path('detail/<uuid:keyword_id>', views.detail, name='detail'),
+  path('create/', views.MyCreateView.as_view(), name='create'),
 ]

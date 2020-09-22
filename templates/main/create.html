@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Create a Record
+{% endblock %}
+
+
+{% block content %}
+<h1>＜レコードの種類＞：の新規作成</h1>
+<br>
+<h4>情報を入力してください。</h4>
+
+<form method="post">
+  {% csrf_token %}
+  <table>
+      {{ form }}
+  </table>
+  <input type="submit">
+</form>
+
+
+{% endblock %}

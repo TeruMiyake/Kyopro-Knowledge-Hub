@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <h2>ログインしました。</h2>
+  <br><br><br>
+  <h4>ログイン中のアカウント ：  {{ user.username }}</h4>
+  <br>
+  {{ user.username }} さんの残り投票可能数（本日分）：{{ user.votingpoint }}
+  <br><br>
+  <br>
+  <p><a href="{% url 'index' %}">トップページへ</a></p>
+  <br>
+  <p><a href="{% url 'logout' %}">ログアウト</a></p>
+{% else %}
+  <h2>ログインしていません</h2>
+  <br>
+  <p>ログインすると、投票（合計10回/日）、投稿、自分が投稿した情報の編集・削除などができるようになります。</p>
+  <br><br>
+  <a href="{% url 'login' %}">ログイン</a> |
+  <a href="{% url 'signup' %}">新規登録</a>
+{% endif %}
+{% endblock %}

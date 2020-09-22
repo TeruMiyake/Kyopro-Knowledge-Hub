@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q # 検索
 
+# クラスベースビューのデコレート（login_required）をするため、method_decorator も必要になる
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+# クラスベース汎用ビューのインポート
+# レコード追加ビュー
+from django.views.generic.edit import CreateView
+
 # models.py からクラスとして定義されたモデル（＝DBテーブルになる）を読み込む
-from .models import Keyword # Keyword, Explanation, LinkForB, LinkForA
+from .models import * # Keyword, Explanation, LinkForB, LinkForA
 
 # forms.py からクラスとして定義されたフォームを読み込む
 from .forms import *
@@ -103,3 +111,14 @@ def cdetail(request, category_id):
   category = get_object_or_404(Category, id=category_id)
   keywords = Keyword.objects.filter(categories=category)
   return render(request, 'main/cdetail.html', {'keywords':keywords, 'category':category})
+
+
+# クラスベース汎用ビューを使ってみる
+
+# レコードの追加を行う
+# CreateView（やUpdateView）は、object ではなく、form という変数を生成するらしい？
+@method_decorator(login_required, name='dispatch')
+class MyCreateView(CreateView):
+  model = Keyword
+  fields = ("text", "categories", "tags", )
+  template_name = "main/create.html"

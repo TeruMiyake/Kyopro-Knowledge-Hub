@@ -14,11 +14,6 @@ from pathlib import Path
 import os
 
 
-# 開発環境用 SECRET_KEY
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1n5_#99vv%=l_@y824#js+ycef2g5^u!39x=0+(0u4jjyi-!#7'
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -29,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # ここから自分で作成したアプリケーション
+    'accounts',
     'main',
 ]
 
@@ -48,6 +44,8 @@ ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
+# カスタムユーザの設定
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
@@ -83,7 +81,15 @@ USE_L10N = True
 USE_TZ = True
 
 
+# アカウント周りの設定
 
+# ログインページの指定
+# これをしておくと、ログインが必要な時、このページに飛ばしてくれる
+LOGIN_URL = '/kkhub/accounts/login/'
+
+# ログイン・ログアウト後にリダイレクトするページ
+LOGIN_REDIRECT_URL = '/kkhub/accounts/'
+LOGOUT_REDIRECT_URL = '/kkhub/accounts/'
 
 
 

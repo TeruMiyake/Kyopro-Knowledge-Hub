@@ -24,4 +24,6 @@ from django.views.static import serve
 urlpatterns = [
     path('kkhub/', include('main.urls')),
     path('kkhub/admin/', admin.site.urls),
+    path('kkhub/accounts/', include('accounts.urls')),
+    path('kkhub/accounts/', include('django.contrib.auth.urls')),
 ]
